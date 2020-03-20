@@ -1,0 +1,23 @@
+﻿<Window x:Class="StatePattern.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StatePattern"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="640" Width="200" ResizeMode="CanMinimize" DataContext="{StaticResource Main}" Background="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <CheckBox Content="Active" IsChecked="{Binding IsActive}" IsThreeState="False" Foreground="White" HorizontalAlignment="Center" />
+        <Ellipse Grid.Row="1" Fill="{Binding State.Color, Converter={StaticResource LightColorsToBrush}, ConverterParameter=Red}" Margin="5" />
+        <Ellipse Grid.Row="2" Fill="{Binding State.Color, Converter={StaticResource LightColorsToBrush}, ConverterParameter=Orange}" Margin="5" />
+        <Ellipse Grid.Row="3" Fill="{Binding State.Color, Converter={StaticResource LightColorsToBrush}, ConverterParameter=Green}" Margin="5" />
+        <Button Grid.Row="4" Background="Yellow" Content="Call" Command="{Binding CallCommand}" />
+    </Grid>
+</Window>
